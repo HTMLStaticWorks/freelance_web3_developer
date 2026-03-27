@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Smart Contracts & dApps Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-cpu-fill me-2"></i>WEB3.DEV
+            </a>
+            <div class="d-flex align-items-center gap-2 order-lg-3">
+                <button id="theme-toggle" class="toggle-btn">
+                    <i class="bi bi-moon-fill"></i>
+                </button>
+                <button id="rtl-toggle" class="toggle-btn">RTL</button>
+                <div class="d-none d-lg-flex gap-2 ms-2">
+                    <a href="login.html" class="btn btn-outline-web3 btn-sm px-3">Login</a>
+                    <a href="signup.html" class="btn btn-primary-web3 btn-sm px-3">Signup</a>
+                </div>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nfts.html">NFTs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-lg-none mt-3 px-3 d-flex gap-2">
+                    <a href="login.html" class="btn btn-outline-web3 w-50">Login</a>
+                    <a href="signup.html" class="btn btn-primary-web3 w-50">Signup</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="hero-section hero-sm"
+        style="background-image: url('https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&w=1920&q=80');">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p class="text-info mb-2 text-uppercase fw-bold">Portfolio</p>
+                    <h1 class="hero-title">Decentralized Applications & Protocols</h1>
+                    <p class="hero-subtitle">A collection of secure smart contracts and robust dApps built for the
+                        modern Web3 ecosystem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Project Grid -->
+    <section class="py-5" id="project-grid">
+        <div class="container py-5">
+            <div class="text-center mb-5 animate-left">
+                <h6 class="text-info mb-2 text-uppercase">Case Studies</h6>
+                <h2 class="display-5 fw-bold">Featured Works</h2>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-lg-4 col-md-6 animate-left">
+                    <div class="web3-card project-card h-100">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=500&q=80"
+                            alt="Project 1" class="img-fluid rounded mb-4">
+                        <h4>DeFi Dashboard</h4>
+                        <p class="text-secondary small">Real-time portfolio tracker for multiple EVM chains.</p>
+                        <div class="mb-4">
+                            <span class="badge bg-secondary">React</span>
+                            <span class="badge bg-secondary">Web3.js</span>
+                            <span class="badge bg-secondary">Tailwind</span>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <button class="btn btn-primary-web3 btn-sm px-4" data-bs-toggle="modal"
+                                data-bs-target="#projectModal"
+                                onclick="populateModal('DeFi Dashboard', 'A comprehensive dashboard for tracking yield-bearing assets across Ethereum, Polygon, and Arbitrum. Includes a custom indexing solution for faster loading.', 'React, Next.js, Ethers.js, The Graph')">Details</button>
+                            <a href="#" class="btn btn-outline-web3 btn-sm"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6 animate-left" style="transition-delay: 0.1s;">
+                    <div class="web3-card project-card h-100">
+                        <img src="https://images.pexels.com/photos/6771432/pexels-photo-6771432.jpeg" alt="Project 2"
+                            class="img-fluid rounded mb-4">
+                        <h4>DAO Governance</h4>
+                        <p class="text-secondary small">Custom on-chain governance forum and voting engine.</p>
+                        <div class="mb-4">
+                            <span class="badge bg-secondary">Solidity</span>
+                            <span class="badge bg-secondary">Ethers</span>
+                            <span class="badge bg-secondary">IPFS</span>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <button class="btn btn-primary-web3 btn-sm px-4" data-bs-toggle="modal"
+                                data-bs-target="#projectModal"
+                                onclick="populateModal('DAO Governance', 'A complete governance suite for decentralized organizations. Implements quadratic voting and time-locked treasury execution.', 'Solidity, Hardhat, OpenZeppelin')">Details</button>
+                            <a href="#" class="btn btn-outline-web3 btn-sm"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6 animate-left" style="transition-delay: 0.2s;">
+                    <div class="web3-card project-card h-100">
+                        <img src="https://images.pexels.com/photos/5789911/pexels-photo-5789911.jpeg" alt="Project 3"
+                            class="img-fluid rounded mb-4">
+                        <h4>NFT Launchpad</h4>
+                        <p class="text-secondary small">Whitelisting, minting, and dynamic revealed mechanism.</p>
+                        <div class="mb-4">
+                            <span class="badge bg-secondary">ERC-721A</span>
+                            <span class="badge bg-secondary">Hardhat</span>
+                            <span class="badge bg-secondary">Chai</span>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <button class="btn btn-primary-web3 btn-sm px-4" data-bs-toggle="modal"
+                                data-bs-target="#projectModal"
+                                onclick="populateModal('NFT Launchpad', 'Highly gas-optimized NFT contract for mass minting. Includes a Merkle Tree whitelist and SVG generation.', 'Solidity, ERC-721A, Typechain')">Details</button>
+                            <a href="#" class="btn btn-outline-web3 btn-sm"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Smart Contract Highlights -->
+    <section class="py-5 bg-card-secondary" id="contract-highlights">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 animate-left">
+                    <h6 class="text-info mb-3"># CODE QUALITY</h6>
+                    <h2 class="display-6 fw-bold mb-4">Secure & Optimized Solidity</h2>
+                    <p class="text-secondary mb-4">My smart contracts are built with gas efficiency and security at
+                        their core. No compromised logic, audited standards only.</p>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="p-3 border border-secondary border-opacity-25 rounded-3">
+                                <h4 class="text-info">100%</h4>
+                                <p class="small text-secondary mb-0">Test Coverage</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 border border-secondary border-opacity-25 rounded-3">
+                                <h4 class="text-info">50k+</h4>
+                                <p class="small text-secondary mb-0">Gas Saved/TX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-0 mt-5 animate-left">
+                    <div class="p-4 bg-card-secondary rounded-4 shadow-lg border border-secondary border-opacity-25">
+                        <pre class="mb-0 text-info small">
+contract GasOptimizer {
+    mapping(address => uint256) private _balances;
+
+    // Optimized loop using assembly
+    function batchTransfer(address[] calldata recipients, uint256 amount) external {
+        uint256 len = recipients.length;
+        for(uint256 i = 0; i < len; ++i) {
+            // Logic here
+        }
+    }
+}
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. GitHub Activity -->
+    <section class="py-5" id="github-activity">
+        <div class="container py-5">
+            <div class="text-center mb-5 animate-left">
+                <h2 class="display-6 fw-bold">Live Contributions</h2>
+                <p class="text-secondary">Building in the open. View my latest GitHub updates.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div
+                        class="p-4 bg-card rounded-4 border border-secondary border-opacity-25 animate-left text-center">
+                        <!-- Placeholder for Github Activity Chart -->
+                        <i class="bi bi-git fs-1 text-info mb-3 d-block"></i>
+                        <h4 class="mb-4">1200+ Contributions this year</h4>
+                        <img src="https://ghchart.rshah.org/38bdf8/github-username-placeholder"
+                            alt="GitHub Contributions" class="img-fluid w-100 opacity-75">
+                        <div class="mt-4">
+                            <a href="https://github.com" class="btn btn-outline-web3"><i
+                                    class="bi bi-github me-2"></i>Follow on Github</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Case Study Feature -->
+    <section class="py-5 bg-card" id="featured-case">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 animate-left">
+                    <span class="badge bg-info text-dark mb-3">Flagship Project</span>
+                    <h2 class="display-5 fw-bold mb-4">Lend-X Protocol Audit</h2>
+                    <p class="text-secondary fs-5 mb-4">A complete technical breakdown of how I secured a decentralized
+                        lending market. Identified 3 critical vulnerabilities before mainnet launch.</p>
+                    <a href="#" class="btn btn-primary-web3">Read Technical Whitepaper</a>
+                </div>
+                <div class="col-lg-6 animate-left">
+                    <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=800&q=80"
+                        alt="Audit" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Project Details -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel">Project Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="#" class="btn btn-primary-web3">Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="navbar-brand mb-4 d-block" href="#">
+                        <i class="bi bi-cpu-fill me-2"></i>WEB3.DEV
+                    </a>
+                    <p class="text-secondary small">Empowering the decentralized revolution through secure code and
+                        intuitive interfaces. Join the movement towards a freer internet.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-discord"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html"
+                                class="text-secondary text-decoration-none hover-white">Home</a></li>
+                        <li class="mb-2"><a href="about.html"
+                                class="text-secondary text-decoration-none hover-white">About Me</a></li>
+                        <li class="mb-2"><a href="projects.html"
+                                class="text-secondary text-decoration-none hover-white">Case Studies</a></li>
+                        <li class="mb-2"><a href="services.html"
+                                class="text-secondary text-decoration-none hover-white">Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4">Ecosystem</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none hover-white">Gitcoin</a>
+                        </li>
+                        <li class="mb-2"><a href="#"
+                                class="text-secondary text-decoration-none hover-white">Mirror.xyz</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none hover-white">POAP</a>
+                        </li>
+                        <li class="mb-2"><a href="#"
+                                class="text-secondary text-decoration-none hover-white">Bounties</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">Help</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="contact.html"
+                                class="text-secondary text-decoration-none hover-white">Contact</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary text-decoration-none hover-white">FAQ</a>
+                        </li>
+                        <li class="mb-2"><a href="login.html"
+                                class="text-secondary text-decoration-none hover-white">Sign In</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary opacity-25">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-secondary small mb-0">&copy; 2026 WEB3.DEV - All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0 d-flex justify-content-center justify-content-md-end align-items-center">
+                    <p class="text-secondary small mb-0 me-3">Powered by Decentrally & IPFS</p>
+                    <a href="#" class="back-to-top-btn" title="Back to Top">
+                        <i class="bi bi-arrow-up-circle-fill fs-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        function populateModal(title, desc, tech) {
+            document.getElementById('projectModalLabel').innerText = title;
+            document.querySelector('#projectModal .modal-body').innerHTML = `
+                <p>${desc}</p>
+                <hr class="border-secondary opacity-25">
+                <h6>Tech Stack:</h6>
+                <p class="text-info">${tech}</p>
+            `;
+        }
+    </script>
+</body>
+
+</html>
