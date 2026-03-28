@@ -1,0 +1,619 @@
+/* 
+    Web3 Freelance Developer Portfolio - Main Stylesheet
+    Author: Antigravity
+    Technology: CSS3, Bootstrap 5
+*/
+
+:root {
+    /* Color Palette - Dark Mode (Default) */
+    --bg-color: #0f172a;
+    --bg-card: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #38bdf8; /* Neon Cyan */
+    --accent-glow: rgba(56, 189, 248, 0.4);
+    --secondary-color: #818cf8; /* Indigo */
+    --border-color: #334155;
+    --nav-bg: rgba(15, 23, 42, 0.8);
+    --transition-speed: 0.3s;
+}
+
+[data-theme="light"] {
+    --bg-color: #f8fafc;
+    --bg-card: #ffffff;
+    --text-primary: #111827; /* Darker for better visibility */
+    --text-secondary: #4b5563; /* Darker for better visibility */
+    --accent-color: #2563eb;
+    --accent-glow: rgba(37, 99, 235, 0.15);
+    --secondary-color: #4338ca;
+    --border-color: #e5e7eb;
+    --nav-bg: rgba(248, 250, 252, 0.9);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+[dir="rtl"] {
+    text-align: right;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* 
+ * Utility Overrides to match Custom Variables dynamically
+ */
+.text-info {
+    color: var(--accent-color) !important;
+}
+a.text-info:hover {
+    color: var(--secondary-color) !important;
+    text-decoration: underline !important;
+}
+.border-info {
+    border-color: var(--accent-color) !important;
+}
+.bg-info {
+    background-color: var(--accent-color) !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px var(--accent-glow); }
+    50% { box-shadow: 0 0 20px var(--accent-glow); }
+    100% { box-shadow: 0 0 5px var(--accent-glow); }
+}
+
+.animate-left {
+    opacity: 0;
+    transition: all 0.8s ease-out;
+    transform: translateX(-50px);
+}
+
+.animate-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    z-index: 1030;
+}
+
+/* Mobile Alignment Fix */
+@media (max-width: 991px) {
+    .navbar-brand {
+        font-size: 1.2rem !important;
+        margin-right: 0 !important;
+    }
+    .navbar-brand i {
+        margin-right: 0.25rem !important;
+    }
+    .navbar .d-flex.gap-2 {
+        gap: 0.25rem !important; /* Reduce space between buttons */
+    }
+}
+
+@media (max-width: 380px) {
+    .navbar-brand {
+        font-size: 1.1rem !important;
+    }
+    .navbar-brand i {
+        margin-right: 0.2rem !important;
+    }
+    .toggle-btn {
+        margin-left: 0.1rem !important;
+        padding: 0.2rem !important;
+    }
+    .navbar-toggler {
+        margin-left: 0.1rem !important;
+        padding: 0.2rem 0.4rem !important;
+    }
+}
+
+
+
+.nav-link {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: color var(--transition-speed);
+    white-space: nowrap;
+}
+
+/* Fix dense navbar spacing for 1024px mid-size viewports */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .nav-link {
+        margin: 0 0.1rem !important;
+        font-size: 0.92rem;
+        padding-left: 0.35rem !important;
+        padding-right: 0.35rem !important;
+    }
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    .navbar .d-none.d-lg-flex .btn {
+        padding: 0.25rem 0.6rem !important;
+        font-size: 0.85rem;
+    }
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-color) !important;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--accent-color) !important;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 100vh; /* Allow it to grow on small screens with lots of text */
+    padding-top: 100px; /* Protective buffer so text doesn't hide behind the navbar */
+    padding-bottom: 60px; /* Buffer before the section ends */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-section.hero-sm {
+    height: 60vh; /* Standard height for auxiliary pages */
+    min-height: 400px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.75); /* Standalone overlay, no blending */
+}
+
+[data-theme="light"] .hero-overlay {
+    background: rgba(248, 250, 252, 0.93);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeInContent 1.5s ease-out; /* Hero-specific animation */
+}
+
+@keyframes fadeInContent {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+    font-size: 4.5rem; /* Main landing size */
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0.2rem; /* Buffer for letters like 'g' with background-clip: text */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto; /* Gracefully hyphenate ultra-long words if they break */
+}
+
+.hero-sm .hero-title {
+    font-size: 3rem; /* Smarter size for auxiliary pages */
+    line-height: 1.2;
+}
+
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 3.5rem;
+        line-height: 1.25;
+    }
+    .hero-sm .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.3;
+    }
+    .hero-sm .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 450px) {
+    .hero-title {
+        font-size: 2rem !important;
+        line-height: 1.25 !important;
+    }
+    .hero-sm .hero-title {
+        font-size: 1.7rem !important;
+    }
+}
+
+/* Global Heading Responsiveness Overrides */
+@media (max-width: 768px) {
+    .display-1 { font-size: 3rem !important; }
+    .display-2 { font-size: 2.75rem !important; }
+    .display-3 { font-size: 2.5rem !important; }
+    .display-4 { font-size: 2.25rem !important; }
+    .display-5 { font-size: 2rem !important; }
+    .display-6 { font-size: 1.75rem !important; }
+}
+
+.hero-subtitle {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 500;
+    max-width: 800px;
+    width: 95%; /* Safety for narrow screens */
+    margin: 0 auto 2.5rem;
+    opacity: 1;
+}
+
+.btn-primary-web3 {
+    background-color: var(--accent-color);
+    color: #000;
+    font-weight: 700;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    border: none;
+    transition: all var(--transition-speed);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.btn-primary-web3:hover {
+    transform: scale(1.05);
+    background-color: var(--secondary-color);
+    color: #fff;
+    box-shadow: 0 0 25px var(--accent-glow);
+}
+
+.btn-outline-web3 {
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    background: transparent;
+    font-weight: 700;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    transition: all var(--transition-speed);
+}
+
+.btn-outline-web3:hover {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+/* Cards */
+.web3-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform var(--transition-speed), border-color var(--transition-speed);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.web3-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+}
+
+/* Background Utilities */
+.bg-card { 
+    background-color: var(--bg-card) !important; 
+}
+.bg-card-secondary { 
+    background-color: rgba(30, 41, 59, 0.7) !important; 
+}
+
+[data-theme="light"] .bg-card-secondary {
+    background-color: #f1f5f9 !important;
+}
+
+.web3-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+/* NFT Grid */
+.nft-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.nft-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.nft-card:hover .nft-img {
+    transform: scale(1.1);
+}
+
+.nft-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: #fff;
+}
+
+/* Auth Pages */
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    padding: 4rem 1rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+    background-color: var(--bg-card);
+    padding: 3rem;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    margin: auto 0; /* Prevents top/bottom clipping in flex-center on short screens */
+}
+
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+.form-control, .form-select {
+    background-color: var(--bg-color) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-secondary) !important;
+    opacity: 0.7;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 10px var(--accent-glow) !important;
+}
+
+/* Footer */
+footer {
+    padding: 4rem 0 2rem;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+}
+
+.social-link {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-right: 1.5rem;
+    transition: color var(--transition-speed);
+}
+
+.social-link:hover {
+    color: var(--accent-color);
+}
+
+.hover-white {
+    transition: color var(--transition-speed);
+}
+
+.hover-white:hover {
+    color: var(--accent-color) !important;
+}
+
+.back-to-top-btn {
+    color: var(--accent-color);
+    transition: all var(--transition-speed);
+}
+
+.back-to-top-btn:hover {
+    color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+
+/* Toggles */
+.toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: all var(--transition-speed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    line-height: 1;
+}
+
+@media (max-width: 991px) {
+    .toggle-btn {
+        margin-left: 0.4rem;
+        font-size: 1.1rem;
+        padding: 0.3rem;
+    }
+    #rtl-toggle {
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+}
+
+
+.toggle-btn:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Navbar Toggler Visibility & Style */
+.navbar-toggler {
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all var(--transition-speed);
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.25rem !important; /* Reduce margin */
+}
+
+.navbar-toggler-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: all var(--transition-speed);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 10px var(--accent-glow);
+    outline: none;
+}
+
+/* Force Visibility in Dark Mode */
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    transition: all var(--transition-speed);
+}
+
+[data-theme="light"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23000000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+
+.navbar-toggler {
+    border-color: var(--border-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .navbar-toggler {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+
+
+
+/* Modal */
+.modal-content {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-color);
+}
+
+/* RTL Specific */
+[dir="rtl"] .ms-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+[dir="rtl"] .me-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+[dir="rtl"] .animate-left {
+    transform: translateX(50px);
+}
+
+[dir="rtl"] .animate-left.visible {
+    transform: translateX(0);
+}
+
+.auth-toggles {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2000;
+}
