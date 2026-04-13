@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Join the Web3 Ecosystem</title>
+    <title>Sign Up | Web3 Dev Portfolio</title>
+    <meta name="description"
+        content="Create a new account on the Web3 developer portfolio website.">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -15,8 +18,9 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
-<body class="auth-wrapper">
-    <!-- Auth Toggles -->
+
+<body>
+
     <div class="auth-toggles">
         <button id="theme-toggle" class="toggle-btn">
             <i class="bi bi-moon-fill"></i>
@@ -24,58 +28,72 @@
         <button id="rtl-toggle" class="toggle-btn">RTL</button>
     </div>
 
-    <div class="auth-card animate-left">
-        <div class="text-center mb-5">
-            <a href="index.html" class="navbar-brand d-block mb-3">
-                <i class="bi bi-cpu-fill me-2"></i>WEB3.DEV
-            </a>
-            <h2 class="fw-bold mb-0">Create Account</h2>
-            <p class="text-secondary small mt-2">Join the future of decentralized development.</p>
-        </div>
+    <!-- Sign Up Content -->
+    <main class="auth-wrapper">
+        <div class="auth-card animate-left">
+            <div class="text-center mb-5">
+                <a class="navbar-brand text-decoration-none d-block mb-4" href="index.html">
+                    <i class="bi bi-cpu-fill me-2"></i>WEB3.DEV
+                </a>
+                <h2 class="display-6 fw-bold mt-3">Create Account</h2>
+                <p class="text-secondary">Join our decentralized ecosystem</p>
+            </div>
+            <form>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Full Name</label>
+                    <input type="text" class="form-control py-3 px-4" placeholder="John Doe" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Email Address</label>
+                    <input type="email" class="form-control py-3 px-4" placeholder="name@example.com" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Password</label>
+                    <div class="position-relative">
+                        <input type="password" class="form-control py-3 px-4" placeholder="••••••••" required>
+                        <span class="password-toggle">
+                            <i class="bi bi-eye-fill"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Confirm Password</label>
+                    <div class="position-relative">
+                        <input type="password" class="form-control py-3 px-4" placeholder="••••••••" required>
+                        <span class="password-toggle">
+                            <i class="bi bi-eye-fill"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="terms" required>
+                    <label class="form-check-label small text-secondary" for="terms">
+                        I agree to the <a href="#" class="text-info text-decoration-none hover-underline">Terms of Service</a> and <a href="#" class="text-info text-decoration-none hover-underline">Privacy Policy</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary-web3 w-100 py-3 mt-2">Sign Up</button>
+                
+                <!-- Social Sign Up Section -->
+                <div class="text-center mt-5">
+                    <p class="text-secondary small text-uppercase fw-bold mb-3">Or sign up with</p>
+                    <div class="social-login-grid btn-group-responsive">
+                        <a href="#" class="social-btn" title="Google"><i class="bi bi-google"></i></a>
+                        <a href="#" class="social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-btn" title="Apple"><i class="bi bi-apple"></i></a>
+                    </div>
+                </div>
 
-        <form>
-            <div class="mb-4">
-                <label class="form-label text-secondary small">First Name</label>
-                <input type="text" class="form-control" placeholder="John" required>
-            </div>
-            <div class="mb-4">
-                <label class="form-label text-secondary small">Last Name</label>
-                <input type="text" class="form-control" placeholder="Doe" required>
-            </div>
-            <div class="mb-4">
-                <label class="form-label text-secondary small">Email Address</label>
-                <div class="input-group">
-                    <span class="input-group-text bg-card border-secondary text-secondary"><i class="bi bi-envelope"></i></span>
-                    <input type="email" class="form-control" placeholder="john@example.com" required>
+                <div class="text-center mt-5">
+                    <p class="text-secondary mb-0">Already have an account? <a href="login.html" class="text-info text-decoration-none fw-bold hover-underline">Login</a></p>
                 </div>
-            </div>
-            <div class="mb-4">
-                <label class="form-label text-secondary small">Password</label>
-                <div class="input-group">
-                    <span class="input-group-text bg-card border-secondary text-secondary"><i class="bi bi-lock"></i></span>
-                    <input type="password" class="form-control" placeholder="••••••••" required>
-                </div>
-            </div>
-            <div class="mb-4">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="termsAgree" required>
-                    <label class="form-check-label text-secondary small" for="termsAgree">I agree to the <a href="#" class="text-info text-decoration-none">Terms of Service</a> and <a href="#" class="text-info text-decoration-none">Privacy Policy</a>.</label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary-web3 w-100 py-3 mb-4">Sign Up</button>
-            <div class="text-center mb-4">
-                <p class="text-secondary small mb-0">or sign up with</p>
-                <div class="d-flex justify-content-center gap-3 mt-3">
-                    <button type="button" class="btn btn-outline-web3 px-4 py-2"><i class="bi bi-google"></i></button>
-                    <button type="button" class="btn btn-outline-web3 px-4 py-2"><i class="bi bi-facebook"></i></button>
-                </div>
-            </div>
-            <p class="text-center text-secondary small mb-0">Already have an account? <a href="login.html" class="text-info text-decoration-none">Login</a></p>
-        </form>
-    </div>
+            </form>
+        </div>
+    </main>
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
