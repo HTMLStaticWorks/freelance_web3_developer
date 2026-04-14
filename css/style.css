@@ -195,8 +195,8 @@ a.text-info:hover {
 }
 
 .hero-section.hero-sm {
-    height: 60vh; /* Standard height for auxiliary pages */
-    min-height: 400px;
+    height: 70vh; /* Increased height for better image visibility */
+    min-height: 500px;
 }
 
 .hero-overlay {
@@ -365,6 +365,53 @@ a.text-info:hover {
     border-color: var(--accent-color);
 }
 
+/* Vertical Split Card Style (Image Top / Text Bottom) */
+.web3-card.vertical-half {
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+.web3-card.vertical-half .card-img-container {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.web3-card.vertical-half .card-img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.web3-card.vertical-half .card-body-content {
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.web3-card.vertical-half h4, 
+.web3-card.vertical-half h5 {
+    margin-bottom: 0.75rem;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.web3-card.vertical-half .card-body-content.text-start {
+    text-align: left !important;
+}
+
 /* Background Utilities */
 .bg-card { 
     background-color: var(--bg-card) !important; 
@@ -392,8 +439,8 @@ a.text-info:hover {
 }
 
 .card-illustration {
-    width: 64px;
-    height: 64px;
+    width: 140px;
+    height: 140px;
     object-fit: contain;
     margin-bottom: 1.5rem;
     filter: drop-shadow(0 0 5px var(--accent-glow));
@@ -510,8 +557,12 @@ footer {
 .back-to-top-btn {
     color: #fff;
     background: #0d6efd; /* Standard Bootstrap Primary Blue */
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    display: inline-flex;
     transition: all var(--transition-speed);
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
